@@ -96,28 +96,29 @@ openssl = { version = "0.10", features = ["vendored"] }
 # Using the 3.3 version of the FVM because the newer ones update the IPLD dependencies
 # to version which are different than the ones in the builtin-actors project, and since
 # they are 0.x cargo cannot upgrade them automatically, which leads to version conflicts.
-fvm = { version = "~3.2", default-features = false }                     # no opencl feature or it fails on CI
-fvm_shared = { version = "~3.2", features = ["crypto"] }
+#fvm = { version = "~3.2", default-features = false }                     # no opencl feature or it fails on CI
+#fvm_shared = { version = "~3.2", features = ["crypto"] }
 primitives = { git = "https://github.com/consensus-shipyard/fvm-utils" }
 
-fvm_ipld_blockstore = "0.1"
-fvm_ipld_car = "0.6"
-fvm_ipld_encoding = "0.3"
-fvm_ipld_hamt = "0.6"
+#fvm_ipld_blockstore = "0.1"
+#fvm_ipld_car = "0.6"
+#fvm_ipld_encoding = "0.3"
+#fvm_ipld_hamt = "0.6"
 
 # Local FVM debugging
-# fvm = { path = "../ref-fvm/fvm", default-features = false }
-# fvm_ipld_blockstore = { path = "../ref-fvm/ipld/blockstore" }
-# fvm_ipld_encoding = { path = "../ref-fvm/ipld/encoding" }
-# fvm_ipld_car = { path = "../ref-fvm/ipld/car" }
-# fvm_ipld_hamt = { path = "../ref-fvm/ipld/hamt" }
-# fvm_shared = { path = "../ref-fvm/shared", features = ["crypto"] }
+ fvm = { path = "../ref-fvm/fvm", default-features = false }
+ fvm_ipld_blockstore = { path = "../ref-fvm/ipld/blockstore" }
+ fvm_ipld_encoding = { path = "../ref-fvm/ipld/encoding" }
+ fvm_ipld_car = { path = "../ref-fvm/ipld/car" }
+ fvm_ipld_hamt = { path = "../ref-fvm/ipld/hamt" }
+ fvm_shared = { path = "../ref-fvm/shared", features = ["crypto"] }
 
 # We are using the bundle for the builtin-actors dependency, and repeating DTO classes on our side,
 # to cut down the time it takes to compile everything. However, some projects have a "shared" part,
 # and this copy-paste is clunky, so at least for those that have it, we should use it.
 # Keep the version here in sync with the Makefile!
-fil_actors_evm_shared = { git = "https://github.com/filecoin-project/builtin-actors", tag = "v11.0.0" }
+# fil_actors_evm_shared = { git = "https://github.com/filecoin-project/builtin-actors", tag = "v11.0.0" }
+fil_actors_evm_shared = { path = "../builtin-actors/actors/evm/shared" }
 
 # Using 0.8 because of ref-fvm.
 # 0.9 would be better because of its updated quickcheck dependency.
@@ -146,6 +147,16 @@ ipc_actors_abis = { git = "https://github.com/consensus-shipyard/ipc-solidity-ac
 gcra = { git = "https://github.com/consensus-shipyard/gcra-rs.git", branch = "main" }
 # Contains some API changes that the upstream has not merged.
 merkle-tree-rs = { git = "https://github.com/consensus-shipyard/merkle-tree-rs.git", branch = "dev" }
+# subtle = { git = "https://github.com/dalek-cryptography/subtle" }
+# storage-proofs-update = { path = "../rust-fil-proofs/storage-proofs-update" }
+# storage-proofs-core = { path = "../rust-fil-proofs/storage-proofs-core" }
+# storage-proofs-porep = { path = "../rust-fil-proofs/storage-proofs-porep" }
+# storage-proofs-post = { path = "../rust-fil-proofs/storage-proofs-post" }
+fvm_shared = { path = "../ref-fvm/shared"}
+fvm_ipld_blockstore = { path = "../ref-fvm/ipld/blockstore" }
+fvm_ipld_encoding = { path = "../ref-fvm/ipld/encoding" }
+fvm_ipld_car = { path = "../ref-fvm/ipld/car" }
+fvm_ipld_hamt = { path = "../ref-fvm/ipld/hamt" }
 
 
 # Uncomment to point to your local versions

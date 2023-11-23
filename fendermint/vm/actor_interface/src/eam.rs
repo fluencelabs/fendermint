@@ -19,6 +19,11 @@ define_singleton!(EAM {
     code_id: 15
 });
 
+define_singleton!(Fluence {
+    id: 17,
+    code_id: 17
+});
+
 /// Ethereum Address Manager actor methods available.
 #[repr(u64)]
 pub enum Method {
