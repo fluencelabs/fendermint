@@ -161,15 +161,10 @@ where
         let app: A = std::mem::replace(&mut self.0, app);
 
         let res = async move {
-            tracing::info!("req is {req:?}");
             let res = match req {
                 Request::Echo(r) => Response::Echo(app.echo(r).await?),
                 Request::Info(r) => Response::Info(app.info(r).await?),
-                Request::InitChain(r) => {
-                    let result = Response::InitChain(app.init_chain(r).await?);
-                    tracing::info!("after init chain");
-                    result
-                },
+                Request::InitChain(r) => Response::InitChain(app.init_chain(r).await?),
                 Request::Query(r) => Response::Query(app.query(r).await?),
                 Request::CheckTx(r) => Response::CheckTx(app.check_tx(r).await?),
                 Request::PrepareProposal(r) => {

@@ -143,7 +143,6 @@ where
 
         // STAGE 1: First we initialize native built-in actors.
 
-        tracing::info!("before system");
         // System actor
         state
             .create_actor(
@@ -201,7 +200,6 @@ where
             )
             .context("failed to create EAM actor")?;
 
-        tracing::info!("before fluence");
         state
             .create_actor(
                 eam::Fluence_ACTOR_CODE_ID,

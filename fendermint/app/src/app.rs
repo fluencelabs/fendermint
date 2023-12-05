@@ -534,10 +534,7 @@ where
             "init chain"
         );
 
-        tracing::info!("asdad");
-
         self.set_committed_state(app_state)?;
-        tracing::info!("after setting state");
 
         Ok(response)
     }

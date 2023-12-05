@@ -103,6 +103,7 @@ where
     ) -> anyhow::Result<Self> {
         let mut nc = NetworkConfig::new(params.network_version);
         nc.chain_id = ChainID::from(params.chain_id);
+        nc.enable_actor_debugging();
 
         // TODO: Configure:
         // * circ_supply; by default it's for Filecoin
@@ -110,6 +111,7 @@ where
         let mut mc = nc.for_epoch(block_height, params.timestamp.0, params.state_root);
         mc.set_base_fee(params.base_fee);
         mc.set_circulating_supply(params.circ_supply.clone());
+        mc.enable_tracing();
 
         // Creating a new machine every time is prohibitively slow.
         // let ec = EngineConfig::from(&nc);
@@ -155,6 +157,7 @@ where
         let raw_length = fvm_ipld_encoding::to_vec(&msg).map(|bz| bz.len())?;
         let ret = self.executor.execute_message(msg, kind, raw_length)?;
         let addrs = self.emitter_delegated_addresses(&ret)?;
+
         Ok((ret, addrs))
     }
 
