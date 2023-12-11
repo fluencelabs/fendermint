@@ -14,7 +14,7 @@ use fendermint_vm_actor_interface::diamond::{EthContract, EthContractMap};
 use fendermint_vm_actor_interface::eam::EthAddress;
 use fendermint_vm_actor_interface::ipc::IPC_CONTRACTS;
 use fendermint_vm_actor_interface::{
-    account, burntfunds, cron, eam, init, ipc, reward, system, EMPTY_ARR,
+    account, burntfunds, cron, eam, fluence, init, ipc, reward, system, EMPTY_ARR,
 };
 use fendermint_vm_core::{chainid, Timestamp};
 use fendermint_vm_genesis::{ActorMeta, Genesis, Power, PowerScale, Validator};
@@ -202,8 +202,8 @@ where
 
         state
             .create_actor(
-                eam::Fluence_ACTOR_CODE_ID,
-                eam::Fluence_ACTOR_ID,
+                fluence::FLUENCE_ACTOR_CODE_ID,
+                fluence::FLUENCE_ACTOR_ID,
                 &EMPTY_ARR,
                 TokenAmount::zero(),
                 None,
