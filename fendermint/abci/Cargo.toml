@@ -10,7 +10,6 @@ license.workspace = true
 async-trait = { workspace = true }
 futures = { workspace = true }
 tower = "0.4"
-tracing = "0.1.40"
 
 tower-abci = { workspace = true }
 tendermint = { workspace = true }

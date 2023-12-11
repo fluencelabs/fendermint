@@ -108,12 +108,19 @@ primitives = { git = "https://github.com/consensus-shipyard/fvm-utils" }
 #fvm_ipld_hamt = "0.6"
 
 # Local FVM debugging
- fvm = { path = "../ref-fvm/fvm", default-features = false }
- fvm_ipld_blockstore = { path = "../ref-fvm/ipld/blockstore" }
- fvm_ipld_encoding = { path = "../ref-fvm/ipld/encoding" }
- fvm_ipld_car = { path = "../ref-fvm/ipld/car" }
- fvm_ipld_hamt = { path = "../ref-fvm/ipld/hamt" }
- fvm_shared = { path = "../ref-fvm/shared", features = ["crypto"] }
+# fvm = { path = "../ref-fvm/fvm", default-features = false }
+# fvm_ipld_blockstore = { path = "../ref-fvm/ipld/blockstore" }
+# fvm_ipld_encoding = { path = "../ref-fvm/ipld/encoding" }
+# fvm_ipld_car = { path = "../ref-fvm/ipld/car" }
+# fvm_ipld_hamt = { path = "../ref-fvm/ipld/hamt" }
+# fvm_shared = { path = "../ref-fvm/shared", features = ["crypto"] }
+
+fvm = { git = "https://github.com/fluencelabs/ref-fvm", branch = "fluence", default-features = false }
+fvm_ipld_blockstore = { git = "https://github.com/fluencelabs/ref-fvm", branch = "fluence" }
+fvm_ipld_encoding = { git = "https://github.com/fluencelabs/ref-fvm", branch = "fluence" }
+fvm_ipld_car = { git = "https://github.com/fluencelabs/ref-fvm", branch = "fluence" }
+fvm_ipld_hamt = { git = "https://github.com/fluencelabs/ref-fvm", branch = "fluence" }
+fvm_shared = { git = "https://github.com/fluencelabs/ref-fvm", branch = "fluence", features = ["crypto"] }
 
 # We are using the bundle for the builtin-actors dependency, and repeating DTO classes on our side,
 # to cut down the time it takes to compile everything. However, some projects have a "shared" part,
@@ -154,12 +161,17 @@ merkle-tree-rs = { git = "https://github.com/consensus-shipyard/merkle-tree-rs.g
 # storage-proofs-core = { path = "../rust-fil-proofs/storage-proofs-core" }
 # storage-proofs-porep = { path = "../rust-fil-proofs/storage-proofs-porep" }
 # storage-proofs-post = { path = "../rust-fil-proofs/storage-proofs-post" }
-fvm_shared = { path = "../ref-fvm/shared"}
-fvm_ipld_blockstore = { path = "../ref-fvm/ipld/blockstore" }
-fvm_ipld_encoding = { path = "../ref-fvm/ipld/encoding" }
-fvm_ipld_car = { path = "../ref-fvm/ipld/car" }
-fvm_ipld_hamt = { path = "../ref-fvm/ipld/hamt" }
+#fvm_shared = { path = "../ref-fvm/shared"}
+#fvm_ipld_blockstore = { path = "../ref-fvm/ipld/blockstore" }
+#fvm_ipld_encoding = { path = "../ref-fvm/ipld/encoding" }
+#fvm_ipld_car = { path = "../ref-fvm/ipld/car" }
+#fvm_ipld_hamt = { path = "../ref-fvm/ipld/hamt" }
 
+fvm_shared = { git = "https://github.com/fluencelabs/ref-fvm", branch = "fluence"}
+fvm_ipld_blockstore = { git = "https://github.com/fluencelabs/ref-fvm", branch = "fluence" }
+fvm_ipld_encoding = { git = "https://github.com/fluencelabs/ref-fvm", branch = "fluence" }
+fvm_ipld_car = { git = "https://github.com/fluencelabs/ref-fvm", branch = "fluence" }
+fvm_ipld_hamt = { git = "https://github.com/fluencelabs/ref-fvm", branch = "fluence" }
 
 # Uncomment to point to your local versions
 # [patch."https://github.com/consensus-shipyard/ipc"]
