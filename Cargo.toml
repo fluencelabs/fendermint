@@ -127,7 +127,8 @@ fvm_shared = { git = "https://github.com/fluencelabs/ref-fvm", branch = "fluence
 # and this copy-paste is clunky, so at least for those that have it, we should use it.
 # Keep the version here in sync with the Makefile!
 # fil_actors_evm_shared = { git = "https://github.com/filecoin-project/builtin-actors", tag = "v11.0.0" }
-fil_actors_evm_shared = { path = "../builtin-actors/actors/evm/shared" }
+#fil_actors_evm_shared = { path = "../builtin-actors/actors/evm/shared" }
+fil_actors_evm_shared = { git = "https://github.com/fluencelabs/builtin-actors", branch = "fluence" }
 
 # Using 0.8 because of ref-fvm.
 # 0.9 would be better because of its updated quickcheck dependency.
